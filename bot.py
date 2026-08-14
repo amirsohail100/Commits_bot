@@ -1,6 +1,6 @@
 """
 Auto Commit Bot - Chunk 1/2
-Helper modules, ANSI styling, Git interface, and File Handler.
+Helper modules, Friendly Emoji ANSI styling, Git interface, and File Handler.
 """
 
 import os
@@ -22,9 +22,10 @@ class Colors:
 
 def print_banner():
     banner = f"""{Colors.OKCYAN}{Colors.BOLD}
-    ==================================================
-       🚀 AUTOMATED GIT CONTRIBUTION & COMMIT BOT 🚀
-    ==================================================
+    =======================================================
+       ✨ 🚀 AUTOMATED GIT CONTRIBUTION & COMMIT BOT 🚀 ✨
+         Maintain your daily streak with ease & fun! 😎
+    =======================================================
     {Colors.ENDC}"""
     print(banner)
 
@@ -33,9 +34,9 @@ def ensure_file_exists(filename="daily_bot.txt"):
     if not os.path.exists(filename):
         with open(filename, "w", encoding="utf-8") as f:
             f.write("# Daily Contribution Log\n")
-        print(f"{Colors.OKGREEN}[+] Created tracking file: {filename}{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}🎉 [Created] New tracking file generated: {filename} 📝{Colors.ENDC}")
     else:
-        print(f"{Colors.OKBLUE}[i] Found tracking file: {filename}{Colors.ENDC}")
+        print(f"{Colors.OKBLUE}🔍 [Found] Existing tracking file detected: {filename} 👌{Colors.ENDC}")
 
 def run_git_command(command):
     """Executes a git command and returns success status."""
@@ -51,7 +52,6 @@ def run_git_command(command):
         return True, result.stdout.strip()
     except subprocess.CalledProcessError as e:
         return False, e.stderr.strip()
-
 
 """
 Auto Commit Bot - Chunk 2/2
