@@ -23,24 +23,47 @@ However, balancing intensive offline study, college work, and high-quality proje
 
 ---
 
+## ⚡ Quick One-Liner Alternative (Instant Execution in Git Bash)
+
+If you don't want to run the Python script, you can directly copy-paste this single Bash command into your Git Bash terminal to generate and push commits instantly:
+
+```bash
+for i in {1..15}; do echo "Daily update $i" >> daily_bot.txt; git add daily_bot.txt; git commit -m "chore: update daily contribution log $i"; done; git push origin main
+```
+
+---
+
 ## 🛠️ Tech Stack & How the Scripts Work
 
-This repository supports both **Quick Bash Automation** and an **Interactive Python CLI Bot** for maximum ease of use.
+### 1️⃣ Interactive Python CLI Bot (`bot.py`) 🚀 _(Recommended)_
 
-### 1️⃣ Interactive Python CLI Bot (`bot.py`) 🚀 _(Recommended for Beginners)_
+We upgraded the automation into a fun, interactive terminal application with a clean UI, colored logs, and emojis!
 
-We upgraded the script into a fun, beginner-friendly, and interactive terminal application with a clean UI!
+#### ✨ Key Features:
 
-#### ✨ Key Features of the Python Bot:
+- 🎨 **Vibrant Terminal UI:** Formatted ANSI colors and emojis.
+- 📁 **Auto File Creation:** Creates `daily_bot.txt` automatically if missing.
+- 🎯 **Custom Goal:** Choose how many commits to make (Default is 10).
+- 🌿 **Branch Flexibility:** Target any git branch (Default is `main`).
+- 🌐 **Interactive Push:** Option to push to remote origin or keep local.
 
-- 🎨 **Vibrant Terminal UI**: Uses ANSI color coding and fun emojis to make the process engaging.
-- 📁 **Auto File Management**: Automatically creates `daily_bot.txt` if it doesn't already exist.
-- 🎯 **Custom Commit Goal**: Set how many commits you want (Defaults to `10` commits).
-- 🌿 **Branch Flexibility**: Choose your target Git branch (Defaults to `main`).
-- 🌐 **Interactive Remote Push**: Gives you full control to push commits to remote GitHub or save them locally.
-
-#### 🏃 How to Run the Python Bot:
+#### 🏃 Local Execution:
 
 ```bash
 python bot.py
+```
+
+---
+
+### 2️⃣ Multi-Line Bash Script Loop ⚡
+
+Alternatively, you can also run the expanded multi-line loop in Git Bash:
+
+```bash
+for i in {1..15}; do
+  echo "Daily update $i" >> daily_bot.txt;
+  git add daily_bot.txt;
+  git commit -m "chore: update daily contribution log $i";
+done;
+git push origin main
 ```
