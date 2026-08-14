@@ -55,12 +55,12 @@ def run_git_command(command):
 
 """
 Auto Commit Bot - Chunk 2/2
-Core commit execution loop, push workflow, and CLI entry point.
+Core execution loop with expressive emojis, feedback, and interactive CLI prompts.
 """
 
 def perform_commits(count, filename="daily_bot.txt", branch="main"):
     """Executes the automated commit loop."""
-    print(f"\n{Colors.WARNING}[*] Starting batch commit process ({count} commits)...{Colors.ENDC}\n")
+    print(f"\n{Colors.WARNING}⚡ Starting batch commit magic ({count} commits loading...)... ⚡{Colors.ENDC}\n")
     
     successful_commits = 0
     for i in range(1, count + 1):
@@ -74,7 +74,7 @@ def perform_commits(count, filename="daily_bot.txt", branch="main"):
         # Git Add
         add_success, add_err = run_git_command(f"git add {filename}")
         if not add_success:
-            print(f"{Colors.FAIL}[!] Error adding file on commit {i}: {add_err}{Colors.ENDC}")
+            print(f"{Colors.FAIL}❌ Oops! Error staging changes on commit {i}: {add_err}{Colors.ENDC}")
             break
             
         # Git Commit
@@ -83,25 +83,25 @@ def perform_commits(count, filename="daily_bot.txt", branch="main"):
         
         if commit_success:
             successful_commits += 1
-            print(f"{Colors.OKGREEN}[✓] Commit {i}/{count} complete: '{commit_msg}'{Colors.ENDC}")
+            print(f"{Colors.OKGREEN}✅ [{i}/{count}] Commit successful! 🎯 -> '{commit_msg}'{Colors.ENDC}")
         else:
-            print(f"{Colors.FAIL}[!] Commit {i} failed: {commit_out}{Colors.ENDC}")
+            print(f"{Colors.FAIL}💥 [{i}/{count}] Commit failed: {commit_out}{Colors.ENDC}")
             break
 
-    print(f"\n{Colors.OKCYAN}=================================================={Colors.ENDC}")
-    print(f"{Colors.BOLD}Completed {successful_commits}/{count} commits successfully.{Colors.ENDC}")
+    print(f"\n{Colors.OKCYAN}======================================================={Colors.ENDC}")
+    print(f"{Colors.BOLD}🎈 Summary: {successful_commits}/{count} commits generated smoothly! 📊{Colors.ENDC}")
     
     if successful_commits > 0:
-        push_choice = input(f"\n{Colors.BOLD}Do you want to push commits to origin {branch}? (Y/n): {Colors.ENDC}").strip().lower()
+        push_choice = input(f"\n{Colors.BOLD}🌐 Ready to push these commits to origin/{branch}? (Y/n) [Default: Y]: {Colors.ENDC}").strip().lower()
         if push_choice in ['', 'y', 'yes']:
-            print(f"{Colors.WARNING}[*] Pushing to origin {branch}...{Colors.ENDC}")
+            print(f"{Colors.WARNING}🚀 Blast off! Pushing to GitHub ({branch})...{Colors.ENDC}")
             push_success, push_msg = run_git_command(f"git push origin {branch}")
             if push_success:
-                print(f"{Colors.OKGREEN}[🚀] Successfully pushed all commits to GitHub!{Colors.ENDC}")
+                print(f"{Colors.OKGREEN}🔥 Booyah! All commits successfully pushed to GitHub! 💚{Colors.ENDC}")
             else:
-                print(f"{Colors.FAIL}[!] Failed to push: {push_msg}{Colors.ENDC}")
+                print(f"{Colors.FAIL}⚠️ Couldn't push to remote: {push_msg}{Colors.ENDC}")
         else:
-            print(f"{Colors.OKBLUE}[i] Skipped pushing to remote repository.{Colors.ENDC}")
+            print(f"{Colors.OKBLUE}⏸️ Saved locally! Skipped pushing to remote repo.{Colors.ENDC}")
 
 def main():
     print_banner()
@@ -109,14 +109,14 @@ def main():
     
     # User Input for Commit Count
     try:
-        user_input = input(f"\nEnter required number of commits (Default [10]): ").strip()
+        user_input = input(f"\n🎯 How many commits do you need today? (Default [10]): ").strip()
         count = int(user_input) if user_input else 10
     except ValueError:
-        print(f"{Colors.FAIL}Invalid input! Using default value: 10{Colors.ENDC}")
+        print(f"{Colors.FAIL}⚠️ Invalid entry! Falling back to default: 10 commits{Colors.ENDC}")
         count = 10
 
     # User Input for Branch Name
-    branch_input = input(f"Enter target git branch (Default [main]): ").strip()
+    branch_input = input(f"🌿 Which Git branch are you working on? (Default [main]): ").strip()
     branch = branch_input if branch_input else "main"
 
     perform_commits(count=count, filename="daily_bot.txt", branch=branch)
