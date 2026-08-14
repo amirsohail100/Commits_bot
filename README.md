@@ -32,6 +32,12 @@ for i in {1..15}; do echo "Daily update $i" >> daily_bot.txt; git add daily_bot.
 ```
 
 ---
+## 📸 Terminal Preview
+
+Below is a preview of the interactive terminal UI in action:
+
+![Interactive Terminal Preview](./assets/preview.png)
+---
 
 ## 🛠️ Tech Stack & How the Scripts Work
 
