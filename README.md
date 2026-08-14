@@ -61,7 +61,7 @@ git clone https://github.com/amirsohail100/Commits_bot.git
 cd Commits_bot
 ```
 
-# Step 4: Run the Python Script
+# Step 3: Run the Python Script
 
 ```bash
 python bot.py
