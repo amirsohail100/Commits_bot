@@ -67,3 +67,17 @@ for i in {1..15}; do
 done;
 git push origin main
 ```
+
+---
+
+## 🚀 One-Liner Execution (No Repository Cloning Needed!)
+
+Aapko repository clone karne ki bilkul zaroorat nahi hai. Bas apne Git Bash / Terminal mein niche diye gaye **dono options** me se koi bhi **ek command** paste karke run karein:
+
+### 🔹 Option 1: Remote Python Bot Run (Interactive UI + Custom Commits)
+
+Direct remote `bot.py` script run karne ke liye:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/amirsohail100/Commits_bot/main/bot.py | python -
+```
