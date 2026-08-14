@@ -81,3 +81,7 @@ Direct remote `bot.py` script run karne ke liye:
 ```bash
 curl -sSL https://raw.githubusercontent.com/amirsohail100/Commits_bot/main/bot.py | python -
 ```
+
+## 📌 Important Notes for Direct Command (`curl`) Users
+
+If you are running the bot directly using the single-line `curl` command without cloning the repository:
