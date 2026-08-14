@@ -49,6 +49,20 @@ We upgraded the automation into a fun, interactive terminal application with a c
 
 #### 🏃 Local Execution:
 
+# Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/amirsohail100/Commits_bot.git
+```
+
+## Step 2: Navigate into the project directory
+
+```bash
+cd Commits_bot
+```
+
+# Step 4: Run the Python Script
+
 ```bash
 python bot.py
 ```
